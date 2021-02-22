@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<title>jQuery OneBook3D Plugin Demo</title>
+
+<head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=UTF-8">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:100&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.11/jquery.mousewheel.min.js"></script>
+    <script src="./js/jquery.onebook3d.min.js"></script>
+    <script>
+        $(function() {
+
+            var src5 = [
+                './g05/010.jpg',
+                './g05/011.jpg', './g05/002.jpg',
+                './g05/004.jpg', './g05/007.jpg',
+                './g05/005.jpg', './g05/012.jpg',
+                './g05/003.jpg'
+            ];
+
+            // var src6 = [
+            //     ['./g06/001.jpg', './g06/004.jpg'],
+            //     ['./g06/003.jpg', 'Photo 1'],
+            //     ['./g06/009.jpg', 'Photo 2'],
+            //     ['./g06/006.jpg', 'Photo 3'],
+            //     ['./g06/002.jpg', 'Photo 4'],
+            //     ['./g06/008.jpg', 'Photo 5'],
+            //     ['./g06/010.jpg', 'Photo 6'],
+            //     ['./g06/007.jpg', 'Photo 7'],
+            //     ['./g06/011.jpg', 'Photo 8'],
+            //     ['./g06/005.jpg', 'Photo 9']
+            // ];
+
+
+            $('#photobook').onebook(src5, {
+                skin: ['light', 'dark'],
+                bgDark: '#222222 ',
+                flip: 'soft',
+                border: 25,
+                cesh: true
+            });
+
+            $('.links a:eq(0)').click(function() {
+                $.onebook(src5, {
+                    startPage: 3,
+                    pageColor: '#888888',
+                    skin: 'light',
+                    cesh: true
+                });
+                return false;
+            });
+
+            $('.links a:eq(1)').click(function() {
+                $.onebook(src5, {
+                    slope: 1,
+                    bgDark: '#222222;background-size:cover;',
+                    cesh: true
+                });
+                return false;
+            });
+
+            $('.links a:eq(2)').click(function() {
+                $.onebook(src6, {
+                    border: 100,
+                    bgDark: '#777777',
+                    language: 'ru',
+                    cesh: true
+                });
+                return false;
+            });
+
+
+
+
+        });
+    </script>
+    <style>
+        html,
+        body {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            /* background: #cccccc;
+            color: #000000; */
+            min-width: 800px;
+        }
+        #OneBook3d_961511_stage_container div .back, #OneBook3d_961511_stage_container div .front, #OneBook3d_961511_stage_container .front_image, #OneBook3d_961511_stage_container .front_image>div, #OneBook3d_961511_stage_container .back_image, #OneBook3d_961511_stage_container .back_image>div{
+          backface-visibility: hidden;
+        }
+        
+        body * {
+            /* -webkit-tap-highlight-color: rgba(0, 0, 0, 0); */
+        }
+        
+        .links a:link,
+        .links a:visited {
+            color: black;
+            text-decoration: none;
+            font: 15px sans-serif;
+        }
+        
+        .links a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+        
+        .headtitle p {
+            text-align: center;
+            margin: 0px;
+            padding: 20px;
+            font: 16px sans-serif;
+            line-height: 140%;
+        }
+        
+        .headtitle2 p {
+            text-align: center;
+            margin: 0px;
+            padding: 20px;
+            font: 13px sans-serif;
+            line-height: 140%;
+        }
+        
+        .address {
+            margin: 0px auto 50px auto;
+            padding: 0px;
+            width: 800px;
+            text-align: center;
+        }
+        
+        .address,
+        .address a {
+            font: 13px arial, sans-serif;
+            color: black;
+        }
+    </style>
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div>
+        <div style="padding:30px;">
+            <div id="photobook" style="height:100px;"></div>
+        </div>
+    </div>
+</body>
+
+</html>
